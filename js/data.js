@@ -1,9 +1,6 @@
 /**
  * ====================================================================
- * POKÉMON GBA SYSTEM PORTFOLIO — CONFIGURATION & DATA SOURCE
- * ====================================================================
- * Profile, Skills, Projects & Certificate Vault for MOHIT BAJIYA
- * B.Tech CSE (Core) Student at SRM University, Delhi NCR
+ * MOHIT BAJIYA — DEVELOPER & TRAINER DATA LAYER (GBA SYSTEM THEME)
  * ====================================================================
  */
 
@@ -34,12 +31,12 @@ const PORTFOLIO_DATA = {
       { label: "CLASS", value: "AI, ML & EMBEDDED" },
       { label: "PRIMARY TYPE", value: "PYTHON & ROBOTICS" },
       { label: "SECONDARY TYPE", value: "LLMs & REACT/WEB" },
-      { label: "SPECIAL MOVE", value: "ASTRA CRYPTO HACKATHON PITCH" }
+      { label: "SPECIALTY", value: "FASTAPI & KINEMATICS" }
     ],
     quickStats: [
-      { label: "PROJECT QUESTS", value: "8+ BUILDS" },
+      { label: "PROJECTS", value: "8 ACTIVE QUESTS" },
       { label: "HACKATHONS", value: "BRAINWAVE '26" },
-      { label: "CERTIFICATIONS", value: "5+ VAULT ITEMS" },
+      { label: "CERTIFICATIONS", value: "6 VAULT ITEMS" },
       { label: "COFFEE CONSUMED", value: "∞ CUPS" }
     ]
   },
@@ -96,228 +93,219 @@ const PORTFOLIO_DATA = {
   // --- QUEST LOG (PROJECTS) ---
   quests: [
     {
-      id: "quest-001",
+      id: "quest-astra",
       questNo: "QUEST #001",
-      title: "ASTRA — Decentralized E-Voting System",
-      type: "HACKATHON SPOTLIGHT / WEB3 / CRYPTO",
-      category: "featured",
-      featured: true,
-      difficulty: "★★★★★",
-      status: "COMPLETED (HACKATHON SHOWCASE)",
-      statusColor: "gold",
-      summary: "Showcased at the Brainwave 2026 Hackathon (GGSIPU USAR) by Team 'Neural Nexus'. A tamper-resistant, decentralized cryptographic voting system with zero-knowledge voter identity verification and live transparent audits.",
-      techStack: ["Node.js", "Express", "React", "MongoDB", "Cryptography", "REST APIs"],
-      features: [
-        "Cryptographic voter token generation preserving complete ballot anonymity",
-        "Immutable audit trails preventing double-voting and unauthorized tallies",
-        "Live election analytics monitor with dynamic reactive charts",
-        "Presented & defended before distinguished university jury at Brainwave 2026"
-      ],
-      challenges: "Ensuring zero-leakage voter privacy while maintaining instant cryptographic auditability and high concurrency.",
-      learned: "Cryptographic state design, rapid hackathon prototyping, technical pitching, and secure system architecture.",
+      title: "ASTRA — Decentralized Cryptographic E-Voting System",
+      category: "Full Stack Web",
+      type: "Cryptographic Security / Hackathon Project",
+      difficulty: "★★★★★ (S-RANK)",
+      status: "PITCHED & DEFENDED",
+      statusColor: "status-gold",
+      thumbnailIcon: "🛡️",
+      summary: "Pitched and presented at Brainwave 2026 Hackathon (GGSIPU USAR). Designed with zero-knowledge cryptographic safeguards, biometric voter tokens, and verifiable audit trails to eliminate voter coercion and tampering.",
+      description: "ASTRA is a next-generation electronic voting protocol combining zero-knowledge proof cryptography, biometric voter authorization, and tamper-resistant audit ledgers. Built and defended at Brainwave 2026 before university jury and dean.",
+      techStack: ["Python", "FastAPI", "Cryptography", "React", "SHA-256", "Zero-Knowledge Proofs"],
       githubUrl: "https://github.com/mbajiya047/ASTRA-E-Voting-System",
       liveDemoUrl: "#",
-      thumbnailIcon: "🗳️"
+      featured: true,
+      expReward: "+1500 EXP",
+      highlights: [
+        "Cryptographic proof-of-vote ensuring 100% election auditability",
+        "Presented at USAR GGSIPU Brainwave 2026 Hackathon",
+        "Real-time election dashboard with live integrity verification"
+      ]
     },
     {
-      id: "quest-002",
+      id: "quest-sahayak",
       questNo: "QUEST #002",
-      title: "Sahayak AI — Public Good Streaming Assistant",
-      type: "AI / FASTAPI / GEMINI STREAMING",
-      category: "ai",
-      featured: true,
-      difficulty: "★★★★☆",
+      title: "Sahayak AI — Real-Time Streaming Assistant",
+      category: "AI & ML",
+      type: "AI Agent & Backend API",
+      difficulty: "★★★★☆ (A-RANK)",
       status: "COMPLETED",
-      statusColor: "blue",
-      summary: "An intelligent public good AI assistant featuring real-time token streaming via FastAPI SSE endpoints, multi-language query support, and Google Gemini API integration.",
-      techStack: ["Python", "FastAPI", "Google Gemini API", "Streaming SSE", "Pydantic", "CORS"],
-      features: [
-        "Real-time token streaming endpoint (/api/ask/stream) for instant conversational responsiveness",
-        "Google Gemini API integration with custom system prompts for public good guidance",
-        "Pydantic schema validation, robust CORS configuration, and asynchronous request handling",
-        "Modular backend architecture with clean service layer abstractions and health check monitoring"
-      ],
-      challenges: "Designing low-latency Server-Sent Events (SSE) streaming while maintaining resilient API connection pooling.",
-      learned: "FastAPI asynchronous streaming pipelines, Gemini API service layer encapsulation, and production API design.",
+      statusColor: "status-green",
+      thumbnailIcon: "🤖",
+      summary: "High-performance AI assistant backend built with FastAPI and Google Gemini API, delivering low-latency real-time response streaming via Server-Sent Events (SSE).",
+      description: "Engineered robust conversational AI system utilizing Google Gemini API and FastAPI streaming architecture. Features token streaming, multi-turn dialogue management, and contextual prompt engineering.",
+      techStack: ["FastAPI", "Python", "Google Gemini API", "SSE Streaming", "Prompt Engineering"],
       githubUrl: "https://github.com/parthshandilya2007-ai/Sahayak_AI",
       liveDemoUrl: "#",
-      thumbnailIcon: "🤖"
+      featured: true,
+      expReward: "+1200 EXP",
+      highlights: [
+        "Real-time Server-Sent Events (SSE) streaming API",
+        "Google Gemini API integration with custom agent routing",
+        "Ultra-low latency async FastAPI architecture"
+      ]
     },
     {
-      id: "quest-003",
+      id: "quest-bank-churn",
       questNo: "QUEST #003",
-      title: "Predictive Modeling & Risk Scoring for Bank Churn",
-      type: "MACHINE LEARNING / DATA SCIENCE",
-      category: "ai",
-      featured: true,
-      difficulty: "★★★★★",
+      title: "Predictive Modeling & Risk Scoring for Bank Customer Churn",
+      category: "AI & ML",
+      type: "Machine Learning & Risk Analytics",
+      difficulty: "★★★★☆ (A-RANK)",
       status: "COMPLETED",
-      statusColor: "gold",
-      summary: "A machine learning predictive risk-scoring system analyzing bank customer attrition dynamics, evaluating churn probabilities, and identifying critical customer retention factors.",
-      techStack: ["Python", "Scikit-Learn", "Pandas", "NumPy", "Matplotlib", "Seaborn", "XGBoost"],
-      features: [
-        "End-to-end exploratory data analysis (EDA) on banking customer demographic & financial profiles",
-        "Predictive classification modeling comparing Random Forest, Logistic Regression, and XGBoost",
-        "Quantitative risk scoring evaluating churn probabilities, ROC-AUC curves, and confusion matrices",
-        "Feature importance diagnostics highlighting key retention drivers (credit score, balance, activity, tenure)"
-      ],
-      challenges: "Handling class imbalance in banking customer churn data and calibrating probability thresholds for proactive retention alerts.",
-      learned: "Machine learning model selection, feature engineering, classification evaluation metrics, and business risk modeling.",
+      statusColor: "status-green",
+      thumbnailIcon: "📊",
+      summary: "End-to-end Machine Learning pipeline utilizing Random Forest, XGBoost, and Scikit-Learn to forecast customer attrition and generate risk scores for proactive retention.",
+      description: "Data science and ML project utilizing feature engineering, SMOTE imbalance handling, Random Forest, and XGBoost classifiers. Evaluated with ROC-AUC curves and confusion matrices to calculate individual customer retention risk scores.",
+      techStack: ["Python", "Scikit-Learn", "XGBoost", "Pandas", "Matplotlib", "ROC-AUC"],
       githubUrl: "https://github.com/mbajiya047/Predictive-Modeling-and-Risk-Scoring-for-Bank-Customer-Churn",
       liveDemoUrl: "#",
-      thumbnailIcon: "📈"
+      featured: true,
+      expReward: "+1000 EXP",
+      highlights: [
+        "Ensemble ML modeling with Random Forest & XGBoost",
+        "High ROC-AUC accuracy and feature importance ranking",
+        "Actionable risk-scoring output for customer retention strategy"
+      ]
     },
     {
-      id: "quest-004",
+      id: "quest-hexapod",
       questNo: "QUEST #004",
-      title: "Ziaka Cafe Prototype — React Ordering App",
-      type: "REACT / VITE / WEB APP",
-      category: "web",
-      featured: true,
-      difficulty: "★★★☆☆",
+      title: "Hexapod Multi-Legged Kinematics Robot",
+      category: "Robotics & IoT",
+      type: "Robotics & Hardware Engineering",
+      difficulty: "★★★★☆ (A-RANK)",
       status: "COMPLETED",
-      statusColor: "green",
-      summary: "A modern, high-performance digital cafe ordering prototype engineered with React and Vite, featuring interactive menu catalogs, cart calculations, and responsive UI.",
-      techStack: ["React.js", "Vite", "JavaScript (ES6)", "HTML5", "CSS3", "Oxlint"],
-      features: [
-        "Interactive cafe menu catalog with category filtering and instant search",
-        "Reactive shopping cart with live total calculations and order checkout flows",
-        "Blazing fast development & build configuration using Vite and modern JSX architecture",
-        "Mobile-first responsive layout with tactile button interactions and clean typography"
-      ],
-      challenges: "Maintaining fluid component state re-renders across cart updates without unnecessary overhead.",
-      learned: "React component architecture, Vite tooling ecosystem, state management patterns, and UI ergonomics.",
-      githubUrl: "https://github.com/mbajiya047/Ziaka-cafe-prototype",
-      liveDemoUrl: "#",
-      thumbnailIcon: "☕"
-    },
-    {
-      id: "quest-005",
-      questNo: "QUEST #005",
-      title: "Hexapod Robot — Multi-Legged Robotic System",
-      type: "ROBOTICS / EMBEDDED C",
-      category: "systems",
-      featured: true,
-      difficulty: "★★★★★",
-      status: "COMPLETED",
-      statusColor: "gold",
-      summary: "An intelligent multi-legged robotic system capable of stable locomotion and terrain navigation using servo motor control, microcontrollers, sensors, and power modules.",
-      techStack: ["Arduino", "Embedded C", "Robotics", "Servo Motors", "Sensors", "Microcontrollers"],
-      features: [
-        "Designed and assembled physical multi-jointed robotic hexapod structure with 6 articulated legs",
-        "Programmed movement and walking algorithms for stable, balance-accurate multi-legged locomotion",
-        "Integrated servo motors, sensor feedback loops, and power management modules",
-        "Conducted extensive hardware testing, vibration troubleshooting, and stability optimization"
-      ],
-      challenges: "Synchronizing multiple high-torque servo motors with precise PWM signals while preserving mechanical center of gravity and battery efficiency.",
-      learned: "Mastered embedded robotics architecture, kinematic gait pacing, real-time sensor integration, and hardware diagnostics.",
+      statusColor: "status-green",
+      thumbnailIcon: "🦾",
+      summary: "Designed and engineered an articulated 6-legged walking robot using Arduino, servo motor arrays, and Embedded C for stable multi-terrain balance and forward kinematics.",
+      description: "Custom-built hexapod robot featuring 18 degrees of freedom (DOF). Programmed tripod-gait walking algorithms, body posture balance, and obstacle navigation using Arduino and Embedded C.",
+      techStack: ["Arduino", "Embedded C", "Servo Motors", "Kinematics", "Hardware Prototyping"],
       githubUrl: "https://github.com/mbajiya047",
       liveDemoUrl: "#",
-      thumbnailIcon: "🦾"
+      featured: true,
+      expReward: "+1100 EXP",
+      highlights: [
+        "18-DOF tripod gait locomotion algorithm in Embedded C",
+        "Real-time sensor balance and obstacle avoidance",
+        "Custom mechanical frame design and servo power distribution"
+      ]
     },
     {
-      id: "quest-006",
+      id: "quest-ziaka",
+      questNo: "QUEST #005",
+      title: "Ziaka Cafe — Modern Responsive Web App Prototype",
+      category: "Full Stack Web",
+      type: "Frontend & UI/UX Application",
+      difficulty: "★★★☆☆ (B-RANK)",
+      status: "COMPLETED",
+      statusColor: "status-green",
+      thumbnailIcon: "☕",
+      summary: "A sleek, responsive digital cafe ordering and catalog application prototype crafted with React, modern CSS, and Vite tooling for lightning-fast customer browsing.",
+      description: "Interactive single-page cafe application featuring interactive digital menus, categorized food catalog, dynamic shopping cart state management, and modern responsive UI.",
+      techStack: ["React", "JavaScript", "Vite", "CSS3", "State Management"],
+      githubUrl: "https://github.com/mbajiya047/Ziaka-cafe-prototype",
+      liveDemoUrl: "#",
+      featured: false,
+      expReward: "+800 EXP",
+      highlights: [
+        "Reactive cart state management and instant price calculation",
+        "Mobile-first responsive food menu with category filtering",
+        "Vite-powered SPA architecture"
+      ]
+    },
+    {
+      id: "quest-student-dashboard",
       questNo: "QUEST #006",
-      title: "Gemini AI Chatbot",
-      type: "AI / LLM / FULL STACK",
-      category: "ai",
-      featured: false,
-      difficulty: "★★★★☆",
-      status: "COMPLETED",
-      statusColor: "blue",
-      summary: "A responsive, context-aware conversational AI companion leveraging the Google Gemini API with a modern glassmorphism UI, real-time streaming, and automatic retry resilience.",
-      techStack: ["HTML5", "CSS3", "JavaScript (ES6)", "Google Gemini API"],
-      features: [
-        "Real-time, context-aware multi-turn conversations using Google Gemini API",
-        "Sleek glassmorphism UI with auto-resizing text input, chat history, and typing indicators",
-        "Automatic retry mechanism with exponential backoff on busy API responses",
-        "Markdown rendering engine for bold typography and syntax-formatted code blocks"
-      ],
-      challenges: "Handling rate limits gracefully and streaming markdown tokens cleanly without UI stutter.",
-      learned: "Deep prompt engineering, API error-handling architectures, asynchronous JavaScript, and user-centric frontend ergonomics.",
-      githubUrl: "https://github.com/mbajiya047/gemini-chatbot",
-      liveDemoUrl: "#",
-      thumbnailIcon: "💬"
-    },
-    {
-      id: "quest-007",
-      questNo: "QUEST #007",
-      title: "Sentiment Analyzer Web App",
-      type: "NLP / PYTHON FLASK",
-      category: "ai",
-      featured: false,
-      difficulty: "★★★☆☆",
-      status: "COMPLETED",
-      statusColor: "green",
-      summary: "A Flask-based Natural Language Processing application classifying text sentiment as Positive, Negative, or Neutral with polarity and subjectivity scores, deployed on Render.",
-      techStack: ["Python", "Flask", "TextBlob", "HTML5", "CSS3", "JavaScript", "Gunicorn"],
-      features: [
-        "Real-time NLP sentiment classification into Positive, Negative, or Neutral categories",
-        "Precise scoring metrics for polarity (-1.0 to +1.0) and subjectivity (0.0 to 1.0)",
-        "Modern, responsive web interface with instant visual sentiment gauges",
-        "Production deployment on Render cloud infrastructure using Gunicorn WSGI"
-      ],
-      challenges: "Providing accurate polarity classification across ambiguous, colloquial, and noisy natural language phrases.",
-      learned: "TextBlob NLP pipelines, Python Flask REST architecture, WSGI production deployment, and responsive UI design.",
-      githubUrl: "https://github.com/mbajiya047/sentiment-analyzer",
-      liveDemoUrl: "#",
-      thumbnailIcon: "🎭"
-    },
-    {
-      id: "quest-008",
-      questNo: "QUEST #008",
       title: "Student Performance Data Analysis Dashboard",
-      type: "DATA SCIENCE / FLASK",
-      category: "web",
-      featured: false,
-      difficulty: "★★★★☆",
+      category: "AI & ML",
+      type: "Data Science & Visual Analytics",
+      difficulty: "★★★☆☆ (B-RANK)",
       status: "COMPLETED",
-      statusColor: "gold",
-      summary: "A comprehensive data analysis dashboard processing student performance CSV datasets to compute statistical averages, scatter plots, Matplotlib correlation heatmaps, and REST APIs.",
-      techStack: ["Python", "Flask", "Pandas", "NumPy", "Matplotlib", "HTML5", "CSS3", "JavaScript"],
-      features: [
-        "Automated CSV data ingestion, cleaning, and statistical processing with Pandas & NumPy",
-        "Dynamic calculation of subject-wise averages, distribution metrics, and correlation matrices",
-        "Visual chart generation: interactive bar charts, scatter plots, and Matplotlib heatmaps",
-        "REST API endpoints returning structured JSON data for decoupled frontend consumption"
-      ],
-      challenges: "Generating and streaming high-resolution visual plots on the fly while maintaining snappy REST API response times.",
-      learned: "Exploratory Data Analysis (EDA), statistical modeling in Python, data visualization pipelines, and REST API design.",
-      githubUrl: "https://github.com/mbajiya047/data_analysis_project",
+      statusColor: "status-green",
+      thumbnailIcon: "📈",
+      summary: "Comprehensive analytical data dashboard examining student academic performance metrics across multiple socio-economic and study-habit variables using Pandas and Seaborn.",
+      description: "Exploratory data analysis pipeline extracting correlation matrices, regression trends, and academic performance distributions with visual chart exports.",
+      techStack: ["Python", "Pandas", "Matplotlib", "Seaborn", "Jupyter Notebook"],
+      githubUrl: "https://github.com/mbajiya047",
       liveDemoUrl: "#",
-      thumbnailIcon: "📊"
+      featured: false,
+      expReward: "+750 EXP",
+      highlights: [
+        "Statistical multi-variable correlation analysis",
+        "Automated visual report generation with Seaborn",
+        "Actionable performance predictor models"
+      ]
+    },
+    {
+      id: "quest-sentiment",
+      questNo: "QUEST #007",
+      title: "Live Sentiment Analyzer Web Application",
+      category: "AI & ML",
+      type: "Natural Language Processing (NLP)",
+      difficulty: "★★★☆☆ (B-RANK)",
+      status: "DEPLOYED",
+      statusColor: "status-blue",
+      thumbnailIcon: "💬",
+      summary: "Real-time NLP web application deployed on Render cloud platform. Analyzes user feedback and text strings to classify polarity (Positive / Neutral / Negative) with confidence scoring.",
+      description: "Full-stack NLP service with Flask backend and responsive frontend. Deployed on Render for public accessibility with sub-second sentiment inference.",
+      techStack: ["Python", "Flask", "NLTK / TextBlob", "Render Cloud", "HTML5/CSS3"],
+      githubUrl: "https://github.com/mbajiya047",
+      liveDemoUrl: "#",
+      featured: false,
+      expReward: "+650 EXP",
+      highlights: [
+        "Cloud-deployed production Flask microservice on Render",
+        "Real-time text tokenization and sentiment classification",
+        "Confidence score and emotion breakdown visualizer"
+      ]
+    },
+    {
+      id: "quest-gemini-bot",
+      questNo: "QUEST #008",
+      title: "Gemini AI Multi-Turn Conversational Bot",
+      category: "AI & ML",
+      type: "Generative AI Application",
+      difficulty: "★★☆☆☆ (B-RANK)",
+      status: "COMPLETED",
+      statusColor: "status-green",
+      thumbnailIcon: "⚡",
+      summary: "Interactive AI chatbot utilizing Google's Gemini LLM. Supports conversation memory, code explanation, and custom system prompt personas.",
+      description: "Lightweight conversational agent built with Python and the Google Generative AI SDK, demonstrating prompt engineering and API error handling.",
+      techStack: ["Python", "Google Gemini SDK", "Streamlit / CLI", "API Architecture"],
+      githubUrl: "https://github.com/mbajiya047",
+      liveDemoUrl: "#",
+      featured: false,
+      expReward: "+600 EXP",
+      highlights: [
+        "Multi-turn conversational history management",
+        "Zero-shot and few-shot prompt customization",
+        "Graceful token quota & rate-limit handling"
+      ]
     }
   ],
 
-  // --- CERTIFICATE VAULT (OFFICIAL CREDENTIALS & HACKATHONS) ---
+  // --- CERTIFICATES VAULT ---
   certificates: [
     {
       id: "cert-01",
       title: "Brainwave 2026 Hackathon — ASTRA Project Presentation",
       category: "HACKATHON SPOTLIGHT",
-      issuer: "Guru Gobind Singh Indraprastha University (GGSIPU), East Delhi Campus",
-      department: "University School of Automation and Robotics (USAR) & ACTS-EDC",
-      team: "Neural Nexus (Mohit Bajiya)",
-      date: "16th Aug & 22nd Aug, 2026",
+      issuer: "Guru Gobind Singh Indraprastha University (GGSIPU USAR)",
+      department: "University School of Automation and Robotics & ACTS-EDC",
+      date: "16th & 22nd August, 2026",
       certNo: "USAR/ACTS/BRAINWAVE/2026/P/138",
       image: "assets/certificates/brainwave_hackathon_astra.jpg",
       badgeColor: "gold",
-      summary: "Successfully pitched and presented the ASTRA Decentralized E-Voting project at Brainwave 2026 Hackathon. Evaluated by Dean Prof. Arvinder Kaur, Assoc. Dir. Prof. Rahul Johari, Dr. Neeta Singh, and Dr. Amar Arora.",
+      summary: "Official Certificate of Participation and Pitch Presentation at the Brainwave 2026 Hackathon (East Delhi Campus). Led Team 'Neural Nexus' presenting the ASTRA Cryptographic E-Voting System before university jury and dean.",
       highlights: [
-        "Pitched ASTRA: Zero-knowledge cryptographic voting security against ballot tampering",
-        "Demonstrated working real-time analytical dashboard and voter verification pipeline",
-        "Represented Team 'Neural Nexus' with rigorous technical defense before university panel"
+        "Presented ASTRA zero-knowledge voting protocol before university evaluation panel",
+        "Certificate signed by Dean Prof. Arvinder Kaur & Assoc. Dir. Prof. Rahul Johari",
+        "Recognized for innovative cryptographic voting and election transparency architecture"
       ]
     },
     {
       id: "cert-02",
       title: "Google for Developers — Build with AI Bootcamp (Jaipur)",
-      category: "GOOGLE AI BOOTCAMP",
+      category: "GOOGLE DEVELOPERS",
       issuer: "Google for Developers & Hack2Skill (H2S)",
-      department: "Build with AI Bootcamps",
-      date: "26/08/2026",
+      department: "Google Developer Groups (GDG)",
+      date: "August 26, 2026",
       certNo: "2026H2S08BWAIBJPR-P00037",
-      image: "assets/certificates/google_build_with_ai.png",
+      image: "assets/certificates/google_build_with_ai.jpg",
       badgeColor: "blue",
       summary: "Demonstrated production technical skills required to build AI agents, architect LLM workflows, and integrate generative AI into production-ready architectures.",
       highlights: [
@@ -427,7 +415,7 @@ const PORTFOLIO_DATA = {
       title: "Brainwave 2026 Hackathon & AI Agent Systems",
       institution: "GGSIPU USAR • Google for Developers • QSkill",
       period: "2025 — 2026",
-      grade: "Team Neural Nexus Lead • 5+ Certified Credentials",
+      grade: "Team Neural Nexus Lead • 6+ Certified Credentials",
       description: "Pitched ASTRA at Brainwave 2026 Hackathon, built Sahayak AI streaming assistant with FastAPI & Gemini, engineered Churn ML models, and earned Google AI Certification.",
       badge: "🏆 HACKATHON BUILDER",
       skillsLearned: ["ASTRA Cryptography", "FastAPI Streaming", "Google AI Agents", "Scikit-Learn", "Embedded C"]
@@ -467,105 +455,91 @@ const PORTFOLIO_DATA = {
       date: "August 26, 2026",
       description: "Demonstrated skills required to build AI agents, architect workflows, and integrate generative AI into production systems.",
       icon: "🤖",
-      color: "#3090e8"
+      color: "#50b0f8"
     },
     {
       id: "badge-03",
       name: "GOOGLE ANALYTICS BADGE",
-      category: "CERTIFICATIONS",
-      title: "Google Analytics Certification",
-      issuer: "Google (ID: 191598478)",
-      date: "Aug 16, 2026 — Aug 16, 2027",
-      description: "Certified by Google in web and app analytics fundamentals, event tracking, and data-driven digital measurement.",
+      category: "DATA & ANALYTICS",
+      title: "Google Analytics Certified (2026–2027)",
+      issuer: "Google",
+      date: "August 16, 2026",
+      description: "Mastered web analytics, event stream telemetry, user acquisition tracking, and conversion optimization.",
       icon: "📈",
-      color: "#28d060"
+      color: "#f8b030"
     },
     {
       id: "badge-04",
-      name: "QSKILL RECOMMENDATION BADGE",
-      category: "INTERNSHIPS",
-      title: "Letter of Recommendation & Cert.",
-      issuer: "Co-Founder Subhajit Roy (SR INDIA)",
-      date: "August 2026",
-      description: "Awarded Letter of Recommendation and completion certificate for excellence in Python development and rapid tech adoption.",
-      icon: "📜",
-      color: "#9955bb"
+      name: "PYTHON ENGINEER BADGE",
+      category: "ENGINEERING",
+      title: "QSkill Python Virtual Internship",
+      issuer: "QSkill (SR INDIA)",
+      date: "July – August 2026",
+      description: "Recognized for high-performance Python development, algorithm design, and software problem-solving.",
+      icon: "🐍",
+      color: "#58d888"
     },
     {
       id: "badge-05",
-      name: "CHURN ML PREDICTOR BADGE",
-      category: "MACHINE LEARNING",
-      title: "Bank Customer Churn Risk Modeler",
-      issuer: "Machine Learning & Scikit-Learn Lab",
-      date: "2026",
-      description: "Engineered predictive classification pipelines evaluating customer churn risk probabilities with Random Forest and XGBoost.",
-      icon: "📊",
-      color: "#f8d030"
+      name: "HARDWARE KINEMATICS BADGE",
+      category: "ROBOTICS",
+      title: "Hexapod 18-DOF Robot Builder",
+      issuer: "Autonomous Robotics Lab",
+      date: "2025 – 2026",
+      description: "Designed multi-legged walking mechanics, balance kinematics, and Embedded C locomotion control.",
+      icon: "🦾",
+      color: "#d86050"
     },
     {
       id: "badge-06",
-      name: "HEXAPOD ROBOTICS BADGE",
-      category: "ROBOTICS",
-      title: "Intelligent Multi-Legged Robot Creator",
-      issuer: "SRM Academic Robotics Lab",
-      date: "2026",
-      description: "Engineered and assembled a functional 6-legged robotic system with custom locomotion gait and balance algorithms in Embedded C.",
-      icon: "🦾",
-      color: "#d84838"
+      name: "ACADEMIC EXCELLENCE BADGE",
+      category: "ACADEMICS",
+      title: "B.Tech CSE Core Undergraduate",
+      issuer: "SRM University, Delhi NCR",
+      date: "2025 — 2029",
+      description: "Pursuing Core Computer Science Engineering with focus on Operating Systems, Networks, and Algorithms.",
+      icon: "🎓",
+      color: "#b070f8"
     }
   ],
 
-  // --- MISSION HISTORY (EXPERIENCE) ---
+  // --- MISSIONS (WORK EXPERIENCE & INTERNSHIPS) ---
   missions: [
     {
-      id: "mission-01",
-      role: "Hackathon Team Lead & System Architect",
-      organization: "Brainwave 2026 Hackathon — Team Neural Nexus",
-      period: "16th & 22nd August 2026",
-      location: "GGSIPU East Delhi Campus",
-      type: "HACKATHON COMPETITION",
-      responsibilities: [
-        "Led Team 'Neural Nexus' to design and showcase the ASTRA Cryptographic E-Voting System.",
-        "Engineered real-time voting audit architecture preventing ballot fraud and ensuring voter anonymity.",
-        "Delivered end-to-end technical pitch and live demo before faculty panel, Dean USAR, and industry judges."
-      ],
-      techUsed: ["ASTRA Protocol", "React", "Node.js", "Cryptography", "REST APIs", "Team Leadership"]
-    },
-    {
-      id: "mission-02",
-      role: "Python Development Intern",
+      id: "exp-01",
+      role: "Python Software Development Virtual Intern",
       organization: "QSkill (Squarcell Resource India Pvt. Ltd. / SR INDIA)",
-      period: "July 6, 2026 – August 6, 2026",
-      location: "Virtual Internship",
+      period: "July 6, 2026 — August 6, 2026 (1 Month)",
+      location: "Remote / Virtual",
       type: "INTERNSHIP",
       responsibilities: [
-        "Developed Python algorithms and modules focusing on problem-solving, structured logic, and data handling.",
-        "Awarded Certificate of Completion and Letter of Recommendation from Subhajit Roy, Co-Founder of SR INDIA.",
-        "Recognized for strong analytical skills, quick adaptation to emerging technologies, and effective team collaboration."
+        "Developed Python scripts and algorithms for structured data processing and algorithmic problem solving.",
+        "Collaborated on module implementation, unit testing, code optimization, and documentation.",
+        "Received formal Letter of Recommendation from Co-Founder Subhajit Roy for strong analytical thinking and fast learning."
       ],
       techUsed: ["Python", "Algorithms", "Data Structures", "Git", "Problem Solving"]
     },
     {
-      id: "mission-03",
-      role: "AI Agent Builder & Participant",
-      organization: "Google for Developers — Build with AI Bootcamp",
-      period: "August 2026",
-      location: "Jaipur, Rajasthan",
-      type: "TECHNICAL BOOTCAMP",
+      id: "exp-02",
+      role: "Team Lead & Lead Presenter (ASTRA Project)",
+      organization: "Team 'Neural Nexus' — Brainwave 2026 Hackathon (GGSIPU USAR)",
+      period: "16th & 22nd August, 2026",
+      location: "GGSIPU East Delhi Campus, Delhi",
+      type: "HACKATHON LEADERSHIP",
       responsibilities: [
-        "Practiced hands-on generative AI integration, prompt design, and AI agent workflow architecture.",
-        "Built prototypes utilizing Google Gemini API and LLM tool-calling capabilities.",
-        "Earned verified Google for Developers Build with AI Certification."
+        "Led team of developers in architecting ASTRA Cryptographic E-Voting System protocol.",
+        "Pitched technical architecture and live demonstration before university evaluation committee and Dean Prof. Arvinder Kaur.",
+        "Engineered zero-knowledge proof concepts and tamper-resistant election audit pipelines."
       ],
-      techUsed: ["Google Gemini API", "AI Agents", "Prompt Engineering", "Workflow Automation"]
+      techUsed: ["FastAPI", "Python", "React", "Zero-Knowledge Proofs", "Cryptography", "Pitch Presentation"]
     },
     {
-      id: "mission-04",
-      role: "Lead Hardware & Software Developer",
-      organization: "Hexapod Robotic System — Academic Project",
-      period: "3 Months Project Duration",
-      location: "SRM University, Haryana",
-      type: "ACADEMIC PROJECT",
+      id: "exp-03",
+      role: "Hardware & Robotics Lead (Hexapod Kinematics Project)",
+      organization: "Academic Robotics Lab • SRM University",
+      period: "2025 — 2026",
+      location: "Sonipat, Haryana",
+      type: "HARDWARE R&D",
       responsibilities: [
         "Designed and assembled physical structure of multi-legged hexapod robot with 6 articulated legs.",
         "Programmed movement and walking algorithms in Embedded C and Arduino IDE for smooth balance and terrain locomotion.",
