@@ -742,15 +742,15 @@ body.scanlines-disabled .scanline-overlay {
 
 .hero-chips, .hero-highlight-chips, #hero-chips-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 14px;
 }
 
 .hero-chip {
   background: #ffffff;
   border: 2px solid #607890;
-  padding: 10px 12px;
+  padding: 8px 10px;
   border-radius: 6px;
   box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
   display: flex;
@@ -758,9 +758,41 @@ body.scanlines-disabled .scanline-overlay {
   justify-content: center;
 }
 
+.hero-chip:nth-child(1) {
+  border-color: #8c52ff;
+  background: #fbf9ff;
+}
+.hero-chip:nth-child(1) .hero-chip-label {
+  color: #7234e8;
+}
+
+.hero-chip:nth-child(2) {
+  border-color: #28a745;
+  background: #f6fdf8;
+}
+.hero-chip:nth-child(2) .hero-chip-label {
+  color: #1e7e34;
+}
+
+.hero-chip:nth-child(3) {
+  border-color: #007bff;
+  background: #f4f9ff;
+}
+.hero-chip:nth-child(3) .hero-chip-label {
+  color: #0056b3;
+}
+
+.hero-chip:nth-child(4) {
+  border-color: #fd7e14;
+  background: #fffaf5;
+}
+.hero-chip:nth-child(4) .hero-chip-label {
+  color: #c85a00;
+}
+
 .hero-chip-label {
   font-family: var(--font-pixel);
-  font-size: 7.5px;
+  font-size: 7px;
   color: #506878;
   display: block;
   margin-bottom: 3px;
@@ -768,7 +800,7 @@ body.scanlines-disabled .scanline-overlay {
 
 .hero-chip-val {
   font-family: var(--font-pixel);
-  font-size: 8.5px;
+  font-size: 8px;
   color: #182838;
   font-weight: bold;
 }
@@ -784,9 +816,9 @@ body.scanlines-disabled .scanline-overlay {
   color: #ffffff;
   border: 3px solid var(--gba-btn-red-dark);
   border-radius: 6px;
-  padding: 12px 18px;
+  padding: 11px 14px;
   font-family: var(--font-pixel);
-  font-size: 9.5px;
+  font-size: 8.5px;
   font-weight: bold;
   cursor: pointer;
   box-shadow: 0 4px 0px #581008;
@@ -810,34 +842,54 @@ body.scanlines-disabled .scanline-overlay {
   box-shadow: 0 1px 0px #581008;
 }
 
-.retro-btn-secondary {
-  background: #285888;
-  border-color: #143050;
-  box-shadow: 0 4px 0px #0c2038;
+/* Button 1: Crimson Pokéball Red */
+.retro-btn.btn-red {
+  background: var(--gba-btn-red);
+  border: 3px solid var(--gba-btn-red-dark);
+  box-shadow: 0 4px 0px #581008;
 }
-.retro-btn-secondary:hover {
-  background: #3470aa;
-  box-shadow: 0 6px 0px #0c2038;
-}
-.retro-btn-secondary:active {
-  box-shadow: 0 1px 0px #0c2038;
+.retro-btn.btn-red:hover {
+  background: var(--gba-btn-red-hover);
+  box-shadow: 0 6px 0px #581008;
 }
 
-.retro-btn-success {
-  background: #288848;
-  border-color: #145028;
-  box-shadow: 0 4px 0px #0c3818;
+/* Button 2: Sapphire Tech Blue */
+.retro-btn.btn-blue {
+  background: #2068b8;
+  border: 3px solid #103c70;
+  box-shadow: 0 4px 0px #0c2448;
 }
-.retro-btn-success:hover {
-  background: #34a858;
-  box-shadow: 0 6px 0px #0c3818;
+.retro-btn.btn-blue:hover {
+  background: #2880e0;
+  box-shadow: 0 6px 0px #0c2448;
+}
+
+/* Button 3: Emerald Solar Green */
+.retro-btn.btn-green {
+  background: #209848;
+  border: 3px solid #105828;
+  box-shadow: 0 4px 0px #083818;
+}
+.retro-btn.btn-green:hover {
+  background: #28b858;
+  box-shadow: 0 6px 0px #083818;
 }
 
 .hero-actions {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
-  margin: 8px 0 16px 0;
+  margin: 10px 0 16px 0;
+  width: 100%;
+}
+
+.hero-actions .retro-btn {
+  width: 100%;
+  padding: 11px 6px;
+  font-size: 8px;
+  letter-spacing: 0.2px;
+  text-align: center;
+  box-sizing: border-box;
 }
 
 /* Quick Stats Bar in Hero */
