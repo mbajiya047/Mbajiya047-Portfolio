@@ -51,7 +51,7 @@
 
   /* Spacing */
   --header-height: 64px;
-  --container-max: 1140px;
+  --container-max: 1540px;
 }
 
 /* Reset & Box Sizing */
@@ -597,7 +597,7 @@ body.scanlines-disabled .scanline-overlay {
  * ==================================================================== */
 .hero-grid {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 300px 1fr;
   gap: 24px;
   align-items: stretch;
 }
