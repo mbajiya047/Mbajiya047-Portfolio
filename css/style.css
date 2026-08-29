@@ -356,23 +356,23 @@ body.scanlines-disabled .scanline-overlay {
   left: 0;
   width: 100%;
   height: var(--header-height);
-  background: rgba(14, 22, 34, 0.95);
+  background: rgba(14, 22, 34, 0.96);
   backdrop-filter: blur(8px);
   border-bottom: 4px solid var(--gba-hud-border);
   box-shadow: 0 4px 15px rgba(0,0,0,0.5);
   z-index: 1000;
   display: flex;
   align-items: center;
-  padding: 0 20px;
+  padding: 0;
 }
 
 .nav-container {
   width: 100%;
-  max-width: var(--container-max);
-  margin: 0 auto;
+  padding: 0 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .nav-brand {
@@ -380,14 +380,16 @@ body.scanlines-disabled .scanline-overlay {
   align-items: center;
   gap: 10px;
   text-decoration: none;
+  z-index: 2;
+  flex-shrink: 0;
 }
 
 .nav-brand-badge {
   background: var(--gba-btn-red);
   color: #fff;
   font-family: var(--font-pixel);
-  font-size: 11px;
-  padding: 4px 8px;
+  font-size: 10.5px;
+  padding: 4px 7px;
   border-radius: 4px;
   border: 2px solid var(--gba-btn-red-dark);
   box-shadow: 2px 2px 0px rgba(0,0,0,0.4);
@@ -395,7 +397,7 @@ body.scanlines-disabled .scanline-overlay {
 
 .nav-brand-name {
   font-family: var(--font-pixel);
-  font-size: 14px;
+  font-size: 13.5px;
   color: #fff;
   letter-spacing: 1px;
   text-shadow: 2px 2px 0px #182838;
@@ -414,13 +416,15 @@ body.scanlines-disabled .scanline-overlay {
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 18px;
+  gap: 12px;
   align-items: center;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .nav-link {
   font-family: var(--font-pixel);
-  font-size: 9px;
+  font-size: 8px;
   color: #b0c4de;
   text-decoration: none;
   padding: 6px 8px;
@@ -430,11 +434,12 @@ body.scanlines-disabled .scanline-overlay {
   align-items: center;
   gap: 4px;
   position: relative;
+  white-space: nowrap;
 }
 
 .nav-link:hover, .nav-link.active {
   color: var(--gba-gold-bright);
-  background: rgba(216, 184, 104, 0.12);
+  background: rgba(216, 184, 104, 0.14);
   text-shadow: 1px 1px 0px #000;
 }
 
@@ -442,8 +447,8 @@ body.scanlines-disabled .scanline-overlay {
   content: '';
   position: absolute;
   bottom: -4px;
-  left: 8px;
-  right: 8px;
+  left: 6px;
+  right: 6px;
   height: 2px;
   background: var(--gba-gold-bright);
 }
@@ -451,7 +456,9 @@ body.scanlines-disabled .scanline-overlay {
 .nav-controls {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
+  z-index: 2;
+  flex-shrink: 0;
 }
 
 .hud-btn {
