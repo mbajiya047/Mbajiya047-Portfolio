@@ -37,7 +37,7 @@ A retro Pokémon Game Boy Advance (GBA) themed interactive portfolio built for M
 
 1. Clone or download the repository:
    ```bash
-   git clone https://github.com/mbajiya047/portfolio.git
+   git clone https://github.com/mbajiya047/Mbajiya047-Portfolio.git
    cd portfolio
    ```
 
