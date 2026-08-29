@@ -140,9 +140,9 @@ class RetroAudioEngine {
     });
   }
 
-  // Terminal command typing tick
+  // Terminal command typing tick (Crisp 8-Bit Mechanical Click)
   playKeyClick() {
-    this.playTone(400 + Math.random() * 200, "sine", 0.02, 0.02);
+    this.playTone(550 + Math.random() * 200, "triangle", 0.035, 0.08);
   }
 }
 

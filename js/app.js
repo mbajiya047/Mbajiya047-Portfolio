@@ -788,7 +788,20 @@ const App = {
   initTerminal() {
     const input = document.getElementById("terminal-input");
     const history = document.getElementById("terminal-history");
+    const terminalPanel = document.querySelector(".terminal-panel");
     if (!input || !history) return;
+
+    // Focus input when clicking anywhere in terminal panel
+    if (terminalPanel) {
+      terminalPanel.addEventListener("click", () => {
+        input.focus();
+      });
+    }
+
+    // Play retro key click sound on typing input
+    input.addEventListener("input", () => {
+      retroAudio.playKeyClick();
+    });
 
     const printLine = (text, type = "output") => {
       const line = document.createElement("div");
@@ -802,11 +815,15 @@ const App = {
     printLine("SYSTEM GBA TERMINAL v2.6.0 — TYPE 'help' FOR COMMANDS", "info");
 
     input.addEventListener("keydown", (e) => {
+      if (e.key === "Backspace" || e.key === "Delete" || e.key === "ArrowUp" || e.key === "ArrowDown") {
+        retroAudio.playKeyClick();
+      }
+
       if (e.key === "Enter") {
         const cmd = input.value.trim().toLowerCase();
         if (!cmd) return;
 
-        retroAudio.playKeyClick();
+        retroAudio.playSelect();
         printLine(`$ mohit-os> ${input.value}`);
         this.terminalHistory.push(input.value);
         this.terminalHistoryIndex = this.terminalHistory.length;
