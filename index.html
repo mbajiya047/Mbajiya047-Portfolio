@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mohit — B.Tech CSE Student & Full-Stack Developer. Pokémon GBA-inspired System Portfolio.">
+  <meta name="theme-color" content="#182434">
+  <title>MOHIT — TRAINER & DEVELOPER PORTFOLIO [SYSTEM GBA]</title>
+
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Ambient Retro Background Canvas -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- Retro Scanline CRT Filter -->
+  <div class="scanline-overlay" aria-hidden="true"></div>
+
+  <!-- System Notification Toast (Matches system.html) -->
+  <div id="notice-toast" role="alert" aria-live="polite"></div>
+
+  <!-- ====================================================================
+   * 1. SYSTEM BOOT / INITIALIZING SCREEN
+   * ==================================================================== -->
+  <div id="boot-screen" role="dialog" aria-modal="true" aria-label="System Boot Sequence">
+    <div class="boot-terminal">
+      <div class="boot-header">
+        <span>POKÉMON GBA SYSTEM v2.6</span>
+        <span>BIOS OK</span>
+      </div>
+      <div class="boot-lines" id="boot-lines"></div>
+      <div class="boot-progress-bar">
+        <div class="boot-progress-fill" id="boot-progress-fill"></div>
+      </div>
+      <button class="boot-skip-btn" id="boot-skip-btn">PRESS [START] TO SKIP ▶</button>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+   * 1.5 VISITOR ACCESS GATE (LEAD CAPTURE / TRAINER PASS)
+   * ==================================================================== -->
+  <div id="visitor-gate-screen" class="hidden" role="dialog" aria-modal="true" aria-label="Visitor Access Gate">
+    <div class="gate-card">
+      <div class="gate-header">
+        <h2 class="gate-title">🛡️ TRAINER ACCESS GATE</h2>
+        <p class="gate-subtitle">Please register your identification to unlock Mohit's portfolio.</p>
+      </div>
+
+      <form class="gate-form" id="visitor-gate-form">
+        <div class="gate-input-group">
+          <label class="gate-label" for="gate-name">TRAINER / RECRUITER NAME *</label>
+          <input type="text" class="gate-input" id="gate-name" placeholder="Enter your full name..." required autocomplete="name">
+        </div>
+
+        <div class="gate-input-group">
+          <label class="gate-label" for="gate-phone">PHONE NUMBER *</label>
+          <input type="tel" class="gate-input" id="gate-phone" placeholder="e.g. +91 9876543210..." required autocomplete="tel">
+        </div>
+
+        <div class="gate-input-group">
+          <label class="gate-label" for="gate-email">EMAIL ADDRESS *</label>
+          <input type="email" class="gate-input" id="gate-email" placeholder="name@company.com..." required autocomplete="email">
+        </div>
+
+        <div class="gate-input-group">
+          <label class="gate-label" for="gate-org">ORGANIZATION / PURPOSE (OPTIONAL)</label>
+          <input type="text" class="gate-input" id="gate-org" placeholder="e.g. Recruiter, Hackathon Judge, Collaboration">
+        </div>
+
+        <button type="submit" class="gate-submit-btn" id="gate-submit-btn">
+          ▶ OBTAIN TRAINER PASS & ENTER
+        </button>
+
+        <p class="gate-privacy-note">🔒 Transmits to Mohit's direct dispatch frequency via Formspree.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- ====================================================================
+   * STICKY GBA HUD NAVIGATION
+   * ==================================================================== -->
+  <nav class="gba-navbar" aria-label="Main Navigation">
+    <div class="nav-container">
+      <a href="#hero" class="nav-brand" aria-label="Mohit Portfolio Home">
+        <span class="nav-brand-badge">LV.99</span>
+        <span class="nav-brand-name">MOHIT</span>
+        <span class="nav-rank-chip">CSE DEV</span>
+      </a>
+
+      <!-- Desktop Links / Mobile Drawer Menu -->
+      <ul class="nav-links" id="nav-links-menu">
+        <li><a href="#hero" class="nav-link active"><span>01</span> HOME</a></li>
+        <li><a href="#about" class="nav-link"><span>02</span> TRAINER</a></li>
+        <li><a href="#skills" class="nav-link"><span>03</span> STATS</a></li>
+        <li><a href="#quests" class="nav-link"><span>04</span> QUESTS</a></li>
+        <li><a href="#journey" class="nav-link"><span>05</span> JOURNEY</a></li>
+        <li><a href="#badges" class="nav-link"><span>06</span> BADGES</a></li>
+        <li><a href="#certificates" class="nav-link"><span>07</span> CERTS</a></li>
+        <li><a href="#missions" class="nav-link"><span>08</span> MISSIONS</a></li>
+        <li><a href="#terminal" class="nav-link"><span>09</span> LOGS</a></li>
+        <li><a href="#contact" class="nav-link"><span>10</span> CONNECT</a></li>
+      </ul>
+
+      <!-- HUD Controls -->
+      <div class="nav-controls">
+        <button class="hud-btn" id="sound-toggle-btn" aria-label="Toggle Retro Sound">🔊 AUDIO: ON</button>
+        <button class="hud-btn" id="crt-toggle-btn" aria-label="Toggle Scanlines">📺 CRT: ON</button>
+        <button class="hud-btn mobile-menu-btn" id="mobile-menu-btn" aria-label="Open Navigation Menu">☰ MENU</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ====================================================================
+   * MAIN WRAPPER & GBA CONSOLE SHELL
+   * ==================================================================== -->
+  <main class="main-wrapper">
+    <div class="gba-system-shell">
+
+      <!-- ====================================================================
+       * 2. HERO — TRAINER PROFILE
+       * ==================================================================== -->
+      <section id="hero" class="portfolio-section reveal-on-scroll">
+        <div class="section-header">
+          <h1 class="section-title">TRAINER CARD // INITIAL PROFILE</h1>
+          <span class="section-tag">REGION: IND // CSE</span>
+        </div>
+
+        <div class="gba-panel">
+          <div class="hero-grid">
+            <!-- Left: Trainer Card Frame -->
+            <div class="trainer-card">
+              <div>
+                <div class="avatar-frame">
+                  <img src="assets/mohit_portrait.jpg" alt="Mohit Bajiya - Trainer Portrait" class="trainer-avatar-img" id="trainer-avatar-img">
+                  <span class="avatar-badge-tag">READY</span>
+                </div>
+                <h2 class="trainer-name-hero" id="trainer-name-hero">MOHIT</h2>
+                <div class="trainer-id-no">ID NO. 2026-CSE-99</div>
+              </div>
+
+              <div class="hero-bars">
+                <div class="hero-bar-item">
+                  <div class="hero-bar-label">
+                    <span>HP (ENERGY)</span>
+                    <span id="trainer-hp-val">100 / 100</span>
+                  </div>
+                  <div class="hero-bar-track">
+                    <div class="hero-bar-fill hp" style="width: 100%;"></div>
+                  </div>
+                </div>
+
+                <div class="hero-bar-item">
+                  <div class="hero-bar-label">
+                    <span>EXP LEVEL</span>
+                    <span id="trainer-exp-val">LV. 99 [S-TIER]</span>
+                  </div>
+                  <div class="hero-bar-track">
+                    <div class="hero-bar-fill exp" style="width: 95%;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div style="font-family:var(--font-pixel); font-size:7.5px; color:#204038;">
+                STATUS: <span style="color:var(--gba-hp-green-dark); font-weight:bold;">ONLINE &bull; READY TO BUILD</span>
+              </div>
+            </div>
+
+            <!-- Right: Hero Dialog Content -->
+            <div class="hero-content">
+              <div class="hero-dialog-box">
+                <div class="hero-headline" id="trainer-title-hero">B.Tech CSE Student • Developer • Problem Solver</div>
+                <p class="hero-bio-lead" id="hero-bio-lead">
+                  Welcome to my portfolio system! I design, engineer, and optimize modern software with clean code and algorithmic precision.
+                </p>
+                <div class="hero-highlight-chips" id="hero-chips-container"></div>
+              </div>
+
+              <!-- CTA Buttons -->
+              <div class="hero-cta-group">
+                <a href="#quests" class="retro-btn">▶ VIEW QUEST LOG</a>
+                <a href="#" class="retro-btn retro-btn-secondary" id="hero-resume-btn" download>📄 DOWNLOAD RESUME</a>
+                <a href="#contact" class="retro-btn retro-btn-success">✉️ CONTACT ME</a>
+              </div>
+
+              <!-- Quick Stats Row -->
+              <div class="quick-stats-grid" id="hero-quick-stats"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+       * 3. ABOUT — TRAINER PROFILE
+       * ==================================================================== -->
+      <section id="about" class="portfolio-section reveal-on-scroll">
+        <div class="section-header">
+          <h2 class="section-title">TRAINER PROFILE // SPECIFICATIONS</h2>
+          <span class="section-tag">INFO_DEX</span>
+        </div>
+
+        <div class="gba-panel">
+          <div class="panel-subheading">▶ COMPREHENSIVE TRAINER DATA</div>
+          <div class="about-grid" id="about-cards-grid"></div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+       * 4. SKILLS — TRAINER STATS
+       * ==================================================================== -->
+      <section id="skills" class="portfolio-section reveal-on-scroll">
+        <div class="section-header">
+          <h2 class="section-title">TRAINER STATS // SKILL EXP METRICS</h2>
+          <span class="section-tag">ATTRIBUTES</span>
+        </div>
+
+        <div class="gba-panel">
+          <div class="panel-subheading">▶ DEVELOPER CAPABILITIES & PROFICIENCIES</div>
+          <div class="skills-container" id="skills-container"></div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+       * 5. PROJECTS — QUEST LOG
+       * ==================================================================== -->
+      <section id="quests" class="portfolio-section reveal-on-scroll">
+        <div class="section-header">
+          <h2 class="section-title">QUEST LOG // PROJECTS & BUILDS</h2>
+          <span class="section-tag">MISSION_BOARD</span>
+        </div>
+
+        <div class="gba-panel">
+          <div class="panel-subheading">▶ ACTIVE & COMPLETED CODING QUESTS</div>
+          
+          <!-- Category Filter Tabs -->
+          <div class="quest-tabs">
+            <button class="quest-tab-btn active" data-filter="all">ALL QUESTS</button>
+            <button class="quest-tab-btn" data-filter="featured">FEATURED</button>
+            <button class="quest-tab-btn" data-filter="web">WEB APPS</button>
+            <button class="quest-tab-btn" data-filter="ai">AI / AGENTS</button>
+            <button class="quest-tab-btn" data-filter="systems">SYSTEMS / ENGINES</button>
+          </div>
+
+          <!-- Quests Grid -->
+          <div class="quests-grid" id="quests-container"></div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+       * 6. EDUCATION — TRAINER JOURNEY
+       * ==================================================================== -->
+      <section id="journey" class="portfolio-section reveal-on-scroll">
+        <div class="section-header">
+          <h2 class="section-title">TRAINER JOURNEY // EDUCATION & MILESTONES</h2>
+          <span class="section-tag">ROUTE_MAP</span>
+        </div>
+
+        <div class="gba-panel">
+          <div class="panel-subheading">▶ CHECKPOINT PROGRESSION & ACADEMIC ROUTE</div>
+          <div id="journey-timeline"></div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+       * 7. ACHIEVEMENTS — GYM BADGES & TROPHIES
+       * ==================================================================== -->
+      <section id="badges" class="portfolio-section reveal-on-scroll">
+        <div class="section-header">
+          <h2 class="section-title">BADGE CASE // ACHIEVEMENTS & CERTIFICATIONS</h2>
+          <span class="section-tag">TROPHY_ROOM</span>
+        </div>
+
+        <div class="gba-panel">
+          <div class="panel-subheading">▶ CLICK A BADGE TO INSPECT CREDENTIALS</div>
+          <div class="badges-case-grid" id="achievements-grid"></div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+       * 7.5 CERTIFICATES — VERIFIED CREDENTIALS & HACKATHONS
+       * ==================================================================== -->
+      <section id="certificates" class="portfolio-section reveal-on-scroll">
+        <div class="section-header">
+          <h2 class="section-title">CERTIFICATE VAULT // HACKATHONS & AWARDS</h2>
+          <span class="section-tag">VERIFIED_CREDENTIALS</span>
+        </div>
+
+        <div class="gba-panel">
+          <div class="panel-subheading">▶ OFFICIAL CERTIFICATIONS, HACKATHON SHOWCASES & RECOMMENDATIONS</div>
+          <div class="cert-vault-grid" id="certificates-vault-container"></div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+       * 8. EXPERIENCE — MISSION HISTORY
+       * ==================================================================== -->
+      <section id="missions" class="portfolio-section reveal-on-scroll">
+        <div class="section-header">
+          <h2 class="section-title">MISSION HISTORY // INDUSTRY & ROLES</h2>
+          <span class="section-tag">FIELD_OPS</span>
+        </div>
+
+        <div class="gba-panel">
+          <div class="panel-subheading">▶ PRACTICAL ROLES, LEADERSHIP & INTERNSHIPS</div>
+          <div class="missions-list" id="missions-container"></div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+       * 9. GITHUB / CODING ACTIVITY & RETRO TERMINAL
+       * ==================================================================== -->
+      <section id="terminal" class="portfolio-section reveal-on-scroll">
+        <div class="section-header">
+          <h2 class="section-title">ACTIVITY LOG // GBA SYSTEM TERMINAL</h2>
+          <span class="section-tag">CONSOLE_CLI</span>
+        </div>
+
+        <div class="gba-panel">
+          <div class="panel-subheading">▶ INTERACTIVE SHELL & REAL-TIME ACTIVITY</div>
+          <div class="activity-grid">
+            <!-- Left: Retro Terminal -->
+            <div class="terminal-panel">
+              <div class="terminal-top-bar">
+                <span>$ MOHIT-OS CLI [v2.6]</span>
+                <span>ONLINE</span>
+              </div>
+              <div class="terminal-history" id="terminal-history"></div>
+              <div class="terminal-input-wrap">
+                <span class="terminal-prompt">$</span>
+                <input type="text" class="terminal-input" id="terminal-input" placeholder="type 'help' and press Enter..." autocomplete="off" spellcheck="false">
+              </div>
+            </div>
+
+            <!-- Right: GitHub Stats Summary -->
+            <div class="github-activity-card" id="github-stats-container"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+       * 10. CONTACT — ESTABLISH CONNECTION
+       * ==================================================================== -->
+      <section id="contact" class="portfolio-section reveal-on-scroll">
+        <div class="section-header">
+          <h2 class="section-title">ESTABLISH CONNECTION // TRANSMIT MESSAGE</h2>
+          <span class="section-tag">COMMS_LINK</span>
+        </div>
+
+        <div class="gba-panel">
+          <div class="panel-subheading">▶ DIRECT CHANNELS & TRANSMISSION DISPATCH</div>
+          <div class="contact-grid">
+            <!-- Contact Channels -->
+            <div class="contact-channels" id="contact-channels-container"></div>
+
+            <!-- Contact Form -->
+            <form class="contact-form" id="portfolio-contact-form">
+              <div class="form-group">
+                <label class="form-label" for="form-name">TRAINER NAME / RECRUITER *</label>
+                <input type="text" class="form-input" id="form-name" placeholder="Enter your name..." required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="form-email">COMMUNICATION FREQUENCY (EMAIL) *</label>
+                <input type="email" class="form-input" id="form-email" placeholder="name@domain.com..." required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="form-subject">MISSION TOPIC / SUBJECT</label>
+                <input type="text" class="form-input" id="form-subject" placeholder="e.g. SDE Opportunity / Collaboration">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="form-message">TRANSMISSION MESSAGE *</label>
+                <textarea class="form-textarea" id="form-message" placeholder="Type your message here..." required></textarea>
+              </div>
+
+              <button type="submit" class="retro-btn retro-btn-success" style="margin-top: 6px;">
+                ⚡ SEND TRANSMISSION
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+       * 11. FOOTER
+       * ==================================================================== -->
+      <footer class="retro-footer">
+        <div class="footer-system-status">
+          <span class="status-dot"></span>
+          <span>SYSTEM ONLINE</span>
+          <span>&bull;</span>
+          <span>BATTERY: 100%</span>
+          <span>&bull;</span>
+          <span>SAVE POINT REACHED</span>
+        </div>
+        <p class="footer-copy">
+          &copy; 2026 MOHIT &bull; B.TECH CSE &bull; BUILT WITH CODE + COFFEE
+        </p>
+        <p style="font-size: 11px; color: #506878; margin-top: 4px;">
+          POKÉMON GBA SYSTEM INTERFACE &bull; ZERO EXTERNAL FRAMEWORKS &bull; ALL SYSTEMS OPERATIONAL
+        </p>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- ====================================================================
+   * UNIVERSAL RETRO MODAL (QUESTS & BADGES)
+   * ==================================================================== -->
+  <div class="retro-modal-backdrop" id="universal-modal-backdrop" role="dialog" aria-modal="true">
+    <div class="retro-modal-box">
+      <button class="modal-close-btn" onclick="App.closeModal()" aria-label="Close dialog">✕ CLOSE</button>
+      <div id="universal-modal-content"></div>
+    </div>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top-btn" id="back-to-top-btn" aria-label="Scroll back to top">▲</button>
+
+  <!-- Application Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
