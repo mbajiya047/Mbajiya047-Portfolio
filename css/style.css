@@ -1731,23 +1731,25 @@ body.scanlines-disabled .scanline-overlay {
 /* ====================================================================
  * 10. CONTACT — ESTABLISH CONNECTION
  * ==================================================================== */
-.contact-grid {
+.contact-grid, .contact-layout {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
+  align-items: stretch;
 }
 
 .contact-channels {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
+  justify-content: space-between;
 }
 
 .contact-channel-item {
   background: #ffffff;
   border: 3px solid #607888;
   border-radius: 8px;
-  padding: 12px 14px;
+  padding: 10px 14px;
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -1763,16 +1765,17 @@ body.scanlines-disabled .scanline-overlay {
 }
 
 .channel-icon {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   background: #182434;
   border: 2px solid var(--gba-gold-outer);
   border-radius: 6px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 18px;
+  font-size: 17px;
   color: var(--gba-gold-bright);
+  flex-shrink: 0;
 }
 
 .channel-info h4 {
@@ -1783,8 +1786,9 @@ body.scanlines-disabled .scanline-overlay {
 }
 
 .channel-info p {
-  font-size: 13.5px;
+  font-size: 13px;
   color: #486078;
+  word-break: break-all;
 }
 
 /* Contact Form */
@@ -1792,11 +1796,12 @@ body.scanlines-disabled .scanline-overlay {
   background: #ffffff;
   border: 3px solid #304838;
   border-radius: 8px;
-  padding: 18px;
+  padding: 16px;
   box-shadow: 3px 3px 0px rgba(0,0,0,0.15);
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .form-group {
@@ -1816,10 +1821,10 @@ body.scanlines-disabled .scanline-overlay {
   border: 2px solid var(--gba-gold-outer);
   outline: 1px solid var(--gba-gold-inner);
   border-radius: 4px;
-  padding: 10px 12px;
+  padding: 8px 10px;
   color: #ffffff;
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 13.5px;
   transition: all 0.15s;
 }
 
@@ -1830,8 +1835,9 @@ body.scanlines-disabled .scanline-overlay {
 }
 
 .form-textarea {
-  min-height: 100px;
+  min-height: 85px;
   resize: vertical;
+  flex-grow: 1;
 }
 
 /* ====================================================================
@@ -2057,15 +2063,15 @@ body.scanlines-disabled .scanline-overlay {
   .activity-grid {
     grid-template-columns: 1fr;
   }
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
   .quick-stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
+  .contact-grid, .contact-layout {
+    grid-template-columns: 1fr;
+  }
   .nav-links {
     position: fixed;
     top: var(--header-height);
