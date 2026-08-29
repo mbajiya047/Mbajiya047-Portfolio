@@ -38,16 +38,12 @@ const App = {
     const bootProgress = document.getElementById("boot-progress-fill");
     const skipBtn = document.getElementById("boot-skip-btn");
 
-    if (!bootScreen) {
-      this.checkVisitorGate();
-      return;
-    }
+    if (!bootScreen) return;
 
     // Check if user previously booted during this session
     const hasBooted = sessionStorage.getItem("SYSTEM_BOOTED_SESSION");
     if (hasBooted) {
       bootScreen.classList.add("hidden");
-      this.checkVisitorGate();
       return;
     }
 
@@ -66,7 +62,8 @@ const App = {
     const finishBoot = () => {
       sessionStorage.setItem("SYSTEM_BOOTED_SESSION", "true");
       bootScreen.classList.add("hidden");
-      this.checkVisitorGate();
+      retroAudio.playLevelUp();
+      this.showToast(`WELCOME TRAINER ${PORTFOLIO_DATA.trainer.name}! SYSTEM ONLINE.`);
     };
 
     if (skipBtn) {
@@ -93,73 +90,6 @@ const App = {
         setTimeout(finishBoot, 400);
       }
     }, 280);
-  },
-
-  // ====================================================================
-  // 1.5 VISITOR ACCESS GATE (LEAD CAPTURE)
-  // ====================================================================
-  checkVisitorGate() {
-    const gateScreen = document.getElementById("visitor-gate-screen");
-    const gateForm = document.getElementById("visitor-gate-form");
-    if (!gateScreen || !gateForm) return;
-
-    const isVerified = localStorage.getItem("TRAINER_PASS_VERIFIED");
-    if (isVerified) {
-      gateScreen.classList.add("hidden");
-      retroAudio.playLevelUp();
-      this.showToast(`WELCOME TRAINER! ACCESS VERIFIED.`);
-      return;
-    }
-
-    gateScreen.classList.remove("hidden");
-
-    gateForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      retroAudio.playSelect();
-
-      const name = document.getElementById("gate-name")?.value.trim();
-      const phone = document.getElementById("gate-phone")?.value.trim();
-      const email = document.getElementById("gate-email")?.value.trim();
-      const org = document.getElementById("gate-org")?.value.trim() || "Independent Visitor / Recruiter";
-      const submitBtn = document.getElementById("gate-submit-btn");
-
-      if (!name || !phone || !email) {
-        this.showToast("PLEASE FILL ALL REQUIRED FIELDS!");
-        return;
-      }
-
-      if (submitBtn) {
-        submitBtn.disabled = true;
-        submitBtn.innerHTML = "⚡ TRANSMITTING PASS TO MOHIT...";
-      }
-
-      const payload = {
-        name: name,
-        phone: phone,
-        email: email,
-        organization: org,
-        subject: `[New Visitor Entry Pass] ${name} (${phone})`,
-        message: `New visitor registered on your portfolio:\n\nTrainer / Recruiter Name: ${name}\nPhone Number: ${phone}\nEmail Address: ${email}\nOrganization / Purpose: ${org}\nTimestamp: ${new Date().toLocaleString()}`
-      };
-
-      const endpoint = PORTFOLIO_DATA.contact.formEndpoint || "https://formspree.io/f/xkjngwbz";
-
-      fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify(payload)
-      }).catch((err) => {
-        console.warn("Gate lead transmission fallback:", err);
-      }).finally(() => {
-        localStorage.setItem("TRAINER_PASS_VERIFIED", JSON.stringify({ name, phone, email, org, date: new Date().toISOString() }));
-        gateScreen.classList.add("hidden");
-        retroAudio.playLevelUp();
-        this.showToast(`ACCESS GRANTED! WELCOME ${name.toUpperCase()}.`);
-      });
-    });
   },
 
   // ====================================================================
