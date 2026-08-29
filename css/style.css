@@ -740,19 +740,22 @@ body.scanlines-disabled .scanline-overlay {
   line-height: 1.6;
 }
 
-.hero-highlight-chips {
+.hero-chips, .hero-highlight-chips, #hero-chips-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  gap: 10px;
   margin-bottom: 16px;
 }
 
 .hero-chip {
-  background: #e8f0f8;
-  border: 2px solid #a0b8cc;
-  padding: 8px 10px;
+  background: #ffffff;
+  border: 2px solid #607890;
+  padding: 10px 12px;
   border-radius: 6px;
-  font-size: 12px;
+  box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero-chip-label {
@@ -760,12 +763,12 @@ body.scanlines-disabled .scanline-overlay {
   font-size: 7.5px;
   color: #506878;
   display: block;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
 }
 
 .hero-chip-val {
   font-family: var(--font-pixel);
-  font-size: 9px;
+  font-size: 8.5px;
   color: #182838;
   font-weight: bold;
 }
@@ -2102,12 +2105,12 @@ body.scanlines-disabled .scanline-overlay {
   .hero-headline {
     font-size: 10px;
   }
-  .hero-highlight-chips {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 480px) {
+  .hero-chips, .hero-highlight-chips, #hero-chips-container {
+    grid-template-columns: 1fr;
+  }
   .trainer-name-hero {
     font-size: 18px;
   }
