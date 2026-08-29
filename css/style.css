@@ -924,10 +924,11 @@ body.scanlines-disabled .scanline-overlay {
 /* ====================================================================
  * 4. SKILLS — TRAINER STATS
  * ==================================================================== */
-.skills-container {
+.skills-grid, .skills-container, #skills-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 18px;
+  align-items: stretch;
 }
 
 .skill-category-card {
@@ -2054,9 +2055,6 @@ body.scanlines-disabled .scanline-overlay {
   .hero-grid {
     grid-template-columns: 1fr;
   }
-  .skills-container {
-    grid-template-columns: 1fr;
-  }
   .about-grid {
     grid-template-columns: 1fr;
   }
@@ -2069,6 +2067,9 @@ body.scanlines-disabled .scanline-overlay {
 }
 
 @media (max-width: 768px) {
+  .skills-grid, .skills-container, #skills-container {
+    grid-template-columns: 1fr;
+  }
   .contact-grid, .contact-layout {
     grid-template-columns: 1fr;
   }
