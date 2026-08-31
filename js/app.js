@@ -27,6 +27,7 @@ const App = {
     this.initContactForm();
     this.initBackgroundCanvas();
     this.initNavigation();
+    this.initModals();
   },
 
   // ====================================================================
@@ -737,7 +738,12 @@ const App = {
 
     const backdrop = document.getElementById("universal-modal-backdrop");
     const content = document.getElementById("universal-modal-content");
+    const titleEl = document.getElementById("universal-modal-title");
     if (!backdrop || !content) return;
+
+    if (titleEl) {
+      titleEl.innerText = `CERTIFICATE // ${cert.category}`;
+    }
 
     content.innerHTML = `
       <div style="font-family:var(--font-pixel); font-size:8px; color:var(--gba-btn-red); margin-bottom:6px;">
@@ -747,8 +753,8 @@ const App = {
         ${cert.title}
       </h2>
 
-      <div style="width:100%; max-height:360px; overflow:hidden; background:#0e1622; border:3px solid var(--gba-gold-outer); border-radius:8px; margin-bottom:14px; display:flex; justify-content:center; align-items:center;">
-        <img src="${cert.image}" alt="${cert.title}" style="width:100%; height:auto; max-height:360px; object-fit:contain;" loading="lazy">
+      <div style="width:100%; max-height:420px; overflow:hidden; background:#0e1622; border:3px solid var(--gba-gold-outer); border-radius:8px; margin-bottom:14px; display:flex; justify-content:center; align-items:center; box-shadow: inset 0 0 10px rgba(0,0,0,0.8);">
+        <img src="${cert.image}" alt="${cert.title}" style="width:100%; height:auto; max-height:420px; object-fit:contain; border-radius:4px;" loading="lazy">
       </div>
 
       <div style="font-size:14px; color:#283848; line-height:1.6; margin-bottom:12px;">
@@ -757,17 +763,17 @@ const App = {
 
       <div style="background:#f4f8fc; border:2px solid #a0b8d0; border-radius:6px; padding:12px; margin-bottom:12px;">
         <div style="font-family:var(--font-pixel); font-size:7.5px; color:#182838; margin-bottom:6px;">▶ CREDENTIAL SPECIFICATIONS:</div>
-        <div style="font-size:13px; color:#384858;">
+        <div style="font-size:13px; color:#384858; line-height:1.6;">
           <strong>ISSUING BODY:</strong> ${cert.issuer}<br>
           <strong>DEPARTMENT / ORG:</strong> ${cert.department || 'N/A'}<br>
           ${cert.team ? `<strong>HACKATHON TEAM:</strong> ${cert.team}<br>` : ''}
           <strong>DATE OF ISSUANCE:</strong> ${cert.date}<br>
-          <strong>VERIFICATION NO:</strong> <span style="font-family:monospace; background:#e0e8f0; padding:1px 4px; border-radius:2px;">${cert.certNo}</span>
+          <strong>VERIFICATION NO:</strong> <span style="font-family:monospace; background:#e0e8f0; padding:2px 6px; border-radius:3px; font-weight:bold; color:#102030;">${cert.certNo}</span>
         </div>
       </div>
 
       <div style="display:flex; justify-content:flex-end; gap:8px;">
-        <a href="${cert.image}" target="_blank" rel="noopener" class="retro-btn" style="font-size:8px; padding:8px 12px;">OPEN ORIGINAL IMAGE 🔍</a>
+        <a href="${cert.image}" target="_blank" rel="noopener" class="retro-btn" style="font-size:8.5px; padding:8px 14px;">OPEN ORIGINAL IMAGE 🔍</a>
       </div>
     `;
 
@@ -780,6 +786,36 @@ const App = {
       backdrop.classList.remove("active");
       retroAudio.playCancel();
     }
+  },
+
+  initModals() {
+    const backdrop = document.getElementById("universal-modal-backdrop");
+    const closeBtn = document.getElementById("universal-modal-close");
+
+    if (closeBtn) {
+      closeBtn.addEventListener("click", () => {
+        this.closeModal();
+      });
+    }
+
+    if (backdrop) {
+      backdrop.addEventListener("click", (e) => {
+        if (e.target === backdrop) {
+          this.closeModal();
+        }
+      });
+    }
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" || e.key === "b" || e.key === "B") {
+        const activeModal = document.querySelector(".modal-backdrop.active, #universal-modal-backdrop.active");
+        if (activeModal) {
+          if (document.activeElement.tagName !== "INPUT" && document.activeElement.tagName !== "TEXTAREA") {
+            this.closeModal();
+          }
+        }
+      }
+    });
   },
 
   // ====================================================================
