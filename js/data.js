@@ -305,7 +305,7 @@ const PORTFOLIO_DATA = {
       department: "Google Developer Groups (GDG)",
       date: "August 26, 2026",
       certNo: "2026H2S08BWAIBJPR-P00037",
-      image: "assets/certificates/google_build_with_ai.jpg",
+      image: "assets/certificates/google_build_with_ai.png",
       badgeColor: "blue",
       summary: "Demonstrated production technical skills required to build AI agents, architect LLM workflows, and integrate generative AI into production-ready architectures.",
       highlights: [
