@@ -36,7 +36,7 @@ const PORTFOLIO_DATA = {
     quickStats: [
       { label: "PROJECTS", value: "8 ACTIVE QUESTS" },
       { label: "HACKATHONS", value: "BRAINWAVE '26" },
-      { label: "CERTIFICATIONS", value: "6 VAULT ITEMS" },
+      { label: "CERTIFICATIONS", value: "7 VAULT ITEMS" },
       { label: "COFFEE CONSUMED", value: "∞ CUPS" }
     ]
   },
@@ -382,6 +382,23 @@ const PORTFOLIO_DATA = {
         "Cybersecurity: Identity and Access Management",
         "Data Science: Behavioral Data Analytics for Online Advertising"
       ]
+    },
+    {
+      id: "cert-07",
+      title: "OOSC 4.0 Hackathon Participation Certificate",
+      category: "IIIT ALLAHABAD HACKATHON",
+      issuer: "Indian Institute of Information Technology (IIIT), Allahabad",
+      department: "Opportunity Open Source Conference (OOSC) 4.0",
+      date: "2026",
+      certNo: "eb65f01e-ef9e-4179-9f55-78f5389e50c6",
+      image: "assets/certificates/iiit_allahabad_oosc_hackathon.png",
+      badgeColor: "blue",
+      summary: "Official Certificate of Participation awarded to Mohit Bajiya (SRM University, Sonipat) for participating in the OOSC 4.0 Hackathon of Opportunity Open Source Conference organized by Indian Institute of Information Technology (IIIT), Allahabad.",
+      highlights: [
+        "Participated in the competitive OOSC 4.0 Hackathon organized by IIIT Allahabad",
+        "Represented SRM University in Open Source software engineering & collaborative problem solving",
+        "Official Verified Credential: ID eb65f01e-ef9e-4179-9f55-78f5389e50c6"
+      ]
     }
   ],
 
@@ -413,10 +430,10 @@ const PORTFOLIO_DATA = {
       level: "LV. 25",
       route: "ROUTE 09 // HACKATHONS & LABS",
       title: "Brainwave 2026 Hackathon & AI Agent Systems",
-      institution: "GGSIPU USAR • Google for Developers • QSkill",
+      institution: "GGSIPU USAR • Google for Developers • QSkill • IIIT Allahabad",
       period: "2025 — 2026",
-      grade: "Team Neural Nexus Lead • 6+ Certified Credentials",
-      description: "Pitched ASTRA at Brainwave 2026 Hackathon, built Sahayak AI streaming assistant with FastAPI & Gemini, engineered Churn ML models, and earned Google AI Certification.",
+      grade: "Team Neural Nexus Lead • 7+ Certified Credentials",
+      description: "Pitched ASTRA at Brainwave 2026 Hackathon, competed at IIIT Allahabad OOSC 4.0 Hackathon, built Sahayak AI streaming assistant with FastAPI & Gemini, engineered Churn ML models, and earned Google AI Certification.",
       badge: "🏆 HACKATHON BUILDER",
       skillsLearned: ["ASTRA Cryptography", "FastAPI Streaming", "Google AI Agents", "Scikit-Learn", "Embedded C"]
     },
